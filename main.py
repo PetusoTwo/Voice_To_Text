@@ -47,7 +47,19 @@ class MyApp(QtWidgets.QMainWindow):
         pass
         
         
-        
+    #Funciones para que la ventana se pueda mover#
+    def mousePressEvent(self, event):
+        if event.button() == Qt.MouseButton.LeftButton:
+            self.click_position = event.globalPosition().toPoint()
+            
+    def mouseMoveEvent(self, event):
+        if event.buttons() == Qt.MouseButton.LeftButton and self.click_position is not None:
+            self.move(self.pos() + event.globalPosition().toPoint() - self.click_position)
+            self.click_position = event.globalPosition().toPoint()
+            
+    def mouseReleaseEvent(self, event):
+        if event.button() == Qt.MouseButton.LeftButton:
+            self.click_position = None
 # Ejecutar el bucle para la app
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

@@ -21,8 +21,7 @@ Esta es una aplicación de reconocimiento de voz desarrollada con PyQt6 y la bib
 1. Clona el repositorio:
 
     ```bash
-    git clone https://github.com/tu_usuario/tu_repositorio.git
-    cd tu_repositorio
+    git clone https://github.com/PetusoTwo/Voice_To_Text.git
     ```
 
 2. Instala las dependencias necesarias:

@@ -1,8 +1,9 @@
 import speech_recognition as sr
 from PyQt6 import QtWidgets, uic
-from PyQt6.QtWidgets import QMessageBox
+from PyQt6.QtWidgets import QMessageBox, QApplication
 from PyQt6.QtCore import Qt, QPoint
 from PyQt6.QtGui import QIntValidator
+
 import sys
 # Inicializar el reconocedor
 recognizer = sr.Recognizer()
@@ -24,18 +25,14 @@ class MyApp(QtWidgets.QMainWindow):
         self.copytext.clicked.connect(self.copyText)
         
     def clearData(self):
-        self.output.setText("")
         self.output.clear()
 
     def copyText(self):
-        #Condicionales para copiar tecxto#
-        if (self.output is not None):
-            QMessageBox.information(self, "Error", "No hay texto para copiar")
-        else:
-            QMessageBox.information(self, "Copiado", "Copiado al portapapeles")
+        pass
+
     def convertText(self):
         with sr.Microphone() as source:
-            QMessageBox.information(self, "Micrófono", "Ajustando el micrófono. Por favor, espere...")
+            QMessageBox.information(self, "Micrófono", "Listo para hablar!!")
             recognizer.adjust_for_ambient_noise(source)  # Ajustar el ruido ambiental
             audio = recognizer.listen(source)
             # Capturar el audio y posibles errores

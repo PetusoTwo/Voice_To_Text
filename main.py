@@ -38,13 +38,19 @@ class MyApp(QtWidgets.QMainWindow):
         self.close.clicked.connect(lambda: self.close())
         #self.voice_txt.clicked.connect(convertText()) #Crear funcion#
         self.copytext.clicked.connect(self.clearData)
-        #self.copytext.clicked.connect(self.copyText)
+        self.copytext.clicked.connect(self.copyText)
         
     def clearData(self):
         self.output.setText("")
         self.output.clear()
-    def copyText():
-        pass
+    def copyText(self):
+        #Condicionales para copiar tecxto#
+        if (self.output is not None):
+            QMessageBox.information(self, "Error", "No hay texto para copiar")
+        else:
+            QMessageBox.information(self, "Copiado", "Copiado al portapapeles")
+        
+        
         
         
     #Funciones para que la ventana se pueda mover#

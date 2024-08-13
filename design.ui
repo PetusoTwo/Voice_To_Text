@@ -40,7 +40,7 @@ border-radius: 10px;
       <property name="maximumSize">
        <size>
         <width>700</width>
-        <height>16777215</height>
+        <height>16777215</height> 
        </size>
       </property>
       <property name="styleSheet">

@@ -28,7 +28,12 @@ class MyApp(QtWidgets.QMainWindow):
         self.output.clear()
 
     def copyText(self):
-        pass
+        if self.output.toPlainText() != "":
+            self.output.selectAll()
+            self.output.copy()
+            self.output.clear()
+        else:
+            QMessageBox.critical(self, "Error", "No hay texto para copiar")
 
     def convertText(self):
         with sr.Microphone() as source:

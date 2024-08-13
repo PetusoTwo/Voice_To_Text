@@ -287,9 +287,10 @@ color: white;
 
 QTextBrowser{
 background-color:rgb(34, 34, 34);
-font: 9pt&quot;Showcard Gothic&quot; ;
+font: 11pt &quot;Yu Gothic UI Semibold&quot;;
 color: white;
 border-radius: 10px;
+padding: 5px;
 }
 
 

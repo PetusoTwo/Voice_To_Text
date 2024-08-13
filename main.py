@@ -21,17 +21,15 @@ class MyApp(QtWidgets.QMainWindow):
         #Conexion a los botones
         self.close.clicked.connect(lambda: self.close())
         self.voice_txt.clicked.connect(self.convertText)
-        self.copytext.clicked.connect(self.clearData)
         self.copytext.clicked.connect(self.copyText)
-        
-    def clearData(self):
-        self.output.clear()
+        self.txt_voice.clicked.connect(self.convertVoice)
 
     def copyText(self):
         if self.output.toPlainText() != "":
             self.output.selectAll()
             self.output.copy()
             self.output.clear()
+            QMessageBox.information(self, "Texto copiado", "Texto copiado exitosamente")
         else:
             QMessageBox.critical(self, "Error", "No hay texto para copiar")
 
@@ -50,6 +48,9 @@ class MyApp(QtWidgets.QMainWindow):
                 QMessageBox.critical(self, "Error", "No se pudo entender el audio")
             except sr.RequestError as e:
                 QMessageBox.critical(self, "Error", f"No se pudo conectar con el servicio de Google Speech Recognition; {e}")
+
+    def convertVoice(self):
+        QMessageBox.information(self, 'Aviso', 'Esta funcion aun no se encuentra disponible')
 
     #Funciones para que la ventana se pueda mover#
     def mousePressEvent(self, event):
